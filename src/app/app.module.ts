@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
@@ -17,14 +17,19 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatSelectModule } from  '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
-
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt'
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { InativosComponent } from './components/inativos/inativos.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AtualizarComponent } from './components/atualizar/atualizar.component';
+import { from } from 'rxjs';
+
+registerLocaleData(localePt)
 
 @NgModule({
   declarations: [
@@ -34,7 +39,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     ReadAllComponent,
     InativosComponent,
     CadastroComponent,
-
+    AtualizarComponent,
   ],
   imports: [
     MatSnackBarModule,
@@ -54,7 +59,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatNativeDateModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt'
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

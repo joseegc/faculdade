@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Aluno } from 'src/app/entities/aluno';
 import { AlunoService } from 'src/app/services/aluno.service';
@@ -8,7 +8,7 @@ import { AlunoService } from 'src/app/services/aluno.service';
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })
-export class CadastroComponent {
+export class CadastroComponent implements OnInit {
   aluno: Aluno = {
     nome: '',
     ativo: true,

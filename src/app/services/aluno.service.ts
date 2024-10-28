@@ -39,4 +39,8 @@ export class AlunoService {
   cadastrar(aluno: Aluno): Observable<any> {
     return this.http.post<any>(this.baseUrl, aluno);
   }
+
+  pesquisarRA(ra: any): Observable<Aluno> {
+    const url = `${this.baseUrl}/${ra}`
+    return this.http.get<Aluno>(url);  }
 }
